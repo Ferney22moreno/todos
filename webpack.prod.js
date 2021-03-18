@@ -2,7 +2,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
+// const CopyPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const path = require('path');
 
@@ -37,17 +37,17 @@ module.exports = {
                     'css-loader',
                 ]
             },
-            {
-                test: /\.(png|jpg|svg|gif)$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            esModule: false,
-                        },
-                    },
-                ]
-            },
+            // {
+            //     test: /\.(png|jpg|svg|gif)$/,
+            //     use: [
+            //         {
+            //             loader: 'file-loader',
+            //             options: {
+            //                 esModule: false,
+            //             },
+            //         },
+            //     ]
+            // },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
@@ -68,11 +68,11 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css',
         }),
-        new CopyPlugin({
-            patterns: [
-                {from: 'src/assets', to: 'assets/'},
-            ]
-        }),
+        // new CopyPlugin({
+        //     patterns: [
+        //         {from: 'src/assets', to: 'assets/'},
+        //     ]
+        // }),
         new CleanWebpackPlugin(),
     ],
     optimization: {
